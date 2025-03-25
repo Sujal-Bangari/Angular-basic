@@ -1,0 +1,5 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input formControlName="username" ngForm  placeholder="Username">
+    <input formControlName="password" ngModel type="password" required placeholder="Password">
+    <button type="submit">Submit</button>
+</form>

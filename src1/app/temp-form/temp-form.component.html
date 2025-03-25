@@ -1,0 +1,6 @@
+<p>temp-form works!</p>
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <input name="email" ngModel required email #email="ngModel">
+    <div *ngIf="email.invalid && email.touched">Valid emial is required</div>
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+</form>

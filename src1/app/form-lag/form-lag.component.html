@@ -1,0 +1,6 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <input name="name" ngModel required placeholder="Name">
+    <input name="email" ngModel type="email" required placeholder="Email">
+    <input name="age" ngModel type="number" required placeholder="Age">
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
