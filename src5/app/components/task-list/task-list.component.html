@@ -1,0 +1,12 @@
+<p>task-list works!</p>
+<div class="card mt-4">
+    <div class="card-body">
+        <h5 class="card-title">TASK LIST</h5>
+        <ul class="list-group">
+            <li *ngFor="let task of taskService.getTasks(); let i=index" class="list-group-item d-flex justfy-content-between align-items-center">
+                {{task}}
+                <button class="btn btn-danger btn-sm" (click)="deleteTask(i)">Delete</button>
+            </li>
+        </ul>
+    </div>
+</div>
