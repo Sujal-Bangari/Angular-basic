@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { forbiddenUsernameValidator } from './custom-validator';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +8,24 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-form-routing';
+  title = 'custom-project';
+  form: FormGroup;
+username: any;
+  constructor(private fb:FormBuilder){
+    this.form=this.fb.group({
+      username:['',[Validators.required, forbiddenUsernameValidator('admin')]]
+    });
+  }
+  onSubmit(){
+    if(this.form.valid){
+      console.log('Form Submitted', this.form.value);
+    }
+    else{
+      console.log("Check your username");
+    }
+  }
+  getusername(){
+    return this.form.get('username');
+  }
+
 }

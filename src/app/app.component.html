@@ -1,6 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label for="username">Username:</label>
+  <input type="text" id="username" formControlName="username">
 
- <nav>
-  <a routerLink="/">Home</a>|<a routerLink="/register">Register</a>|<a routerLink="/login">Login</a>
- </nav>
+  <div *ngIf="username?.invalid&&(username?.dirty||username?.touched)">
+    <div *ngIf="username?.errors?.['required']">USername is Required</div>
+    <div *ngIf="username?.errors?.['forbiddenUsername']">"admin" is not allowed as a username.</div>
+  </div>
+  <button type="submit" [disabled]="form.invalid">submit</button>
+</form>
 
 <router-outlet></router-outlet>
