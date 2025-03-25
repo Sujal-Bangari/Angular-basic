@@ -1,0 +1,65 @@
+ <app-hello-world></app-hello-world>
+<app-greeting [name]="'Sujal'"></app-greeting>
+<app-button-clicker (clicked)="handleEvent($event)"></app-button-clicker>
+<p>{{message}}</p>
+<app-dashboard></app-dashboard>
+<button (click)="show= !show">{{show?'Hide':'Show'}} Profile </button>
+<app-profile *ngIf="show"></app-profile>
+<app-search-box></app-search-box>
+<app-logger></app-logger>
+<app-styled-card></app-styled-card>
+<button (click)="loadComponent()">Load HelloWorld</button>
+<ng-template #container></ng-template>
+<app-sender></app-sender>
+<app-receiver></app-receiver> 
+<button (click)="toggle()">Toggle Paragraph</button>
+<p *ngIf="show1">This paragrap is conditonally displayed.</p>
+<ul>
+    <li *ngFor="let item of items">{{item}}</li>
+</ul>
+<select [(ngModel)]="fruit">
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="cherry">Cherry</option>
+</select>
+<div [ngSwitch]="fruit">
+    <p *ngSwitchCase="'apple'">You Selected Apple</p>
+    <p *ngSwitchCase="'banana'">You Selected Banana</p>
+    <p *ngSwitchCase="'cherry'">You Selected Cherry</p>
+    <p *ngSwitchDefault>Please select a fruit.</p>
+</div>
+
+<p [ngClass]="{'highlight':isHighlighted}">This text can be highlighted.</p>
+<button (click)="isHighlighted = !isHighlighted">Toggle Highlight</button>
+<p [ngStyle]="{'color':isRed? 'red':'black','font-size.px':18}">This text changes color</p>
+<button (click)="isRed=!isRed">Toggle Color</button>
+<p appTextColor="green">This text is green.</p>
+<p appTextColor="red">This text is red</p>
+<p appHoverHighlight>Hover over this text to highlight it.</p>
+<button (click)="isVisible= !isVisible">Toggle</button>
+<p *appUnless="isVisible">This paragraph is shown when "isVisible" is false.</p>
+<input [(ngModel)]="name" placeholder="Enter Name">
+<p>Hello, {{name}}</p>
+<h1>Welcome to {{title}}</h1>
+<p>Hello, {{username}}</p> 
+<img [src]="imageURL" alt="Angular logo" >
+<button [attr.aria-label]="buttonLabel">{{buttonLabel}}</button>
+<p>Short Date: {{today|date:'shortDate'}}</p>
+<p>Full Date:{{today|date:'fullDate'}}</p>
+<p>Custom Format: {{today| date:'MMM d, y,h:mm:ss a'}}</p>
+<p>Original: {{n}}</p>
+<p>UpperCase: {{n|uppercase}}</p>
+<p>LowerCase: {{n|lowercase}}</p>
+<p>US DOLLARS: {{amount|currency:'USD'}}</p>
+<p>EUROS: {{amount|currency:'EUR'}}</p>
+<p>JAPANESE: {{amount|currency:'JPY'}}</p>
+<p>INDIAN: {{amount|currency:'RS'}}</p>
+<p>Decimal: {{percentValue}}</p>
+<p>Percentage: {{percentValue|percent:'1.1-2'}}</p>
+<p>String Original:{{msg}}</p>
+<p>String Slice(0,5):{{msg|slice:0:5|uppercase}}</p>
+<p>Array Original: {{item}}</p>
+<p>Array Slice(1,4): {{item|slice:1:4}}</p>
+<p>Original: {{ n }}</p>
+<p>UpperCase: {{ n | reverse }}</p>
+<router-outlet></router-outlet>
